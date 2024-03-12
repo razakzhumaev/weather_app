@@ -7,7 +7,6 @@ import 'package:flutter_appl_weatherapp/features/weather/domain/use_cases/weathe
 import 'package:flutter_appl_weatherapp/features/weather/presentation/logic/bloc/weather_bloc.dart';
 import 'package:flutter_appl_weatherapp/internal/helpers/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 
 class WeatherInfoScreen extends StatefulWidget {
@@ -57,7 +56,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
         ),
       ),
@@ -68,33 +67,33 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(3, -0.3),
+                alignment: const AlignmentDirectional(3, -0.3),
                 child: Container(
                   height: 300,
                   width: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.deepPurple,
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-3, -0.3),
+                alignment: const AlignmentDirectional(-3, -0.3),
                 child: Container(
                   height: 300,
                   width: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xff673AB7),
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1.2),
+                alignment: const AlignmentDirectional(0, -1.2),
                 child: Container(
                   height: 300,
                   width: 600,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xffffAB40),
                   ),
@@ -106,7 +105,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                   sigmaY: 100.0,
                 ),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.transparent),
+                  decoration: const BoxDecoration(color: Colors.transparent),
                 ),
               ),
               SizedBox(
@@ -116,7 +115,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                   bloc: weatherBloc,
                   builder: (context, state) {
                     if (state is WeatherLoadingState) {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
@@ -129,7 +128,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                             ),
                           );
                         },
-                        child: Text('Try Again'),
+                        child: const Text('Try Again'),
                       );
                     }
                     if (state is WeatherLoadedState) {
@@ -149,31 +148,32 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                 Row(
                                   children: [
                                     Text(
-                                      "${widget.weatherModel.name ?? ''}",
-                                      style: TextStyle(
+                                      widget.weatherModel.name ?? '',
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w300,
                                       ),
                                     ),
                                     Text(
                                       "(${widget.weatherModel.sys?.country ?? ''})",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w300,
                                       ),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     RichText(
                                       text: TextSpan(
                                         text: 'Current time:  ',
-                                        style: TextStyle(color: Colors.white),
+                                        style: const TextStyle(
+                                            color: Colors.white),
                                         children: [
                                           TextSpan(
-                                            text: "${formatTime(
+                                            text: formatTime(
                                               state.weatherModel.dt ?? 0,
                                               state.weatherModel.timezone ?? 0,
-                                            )}",
-                                            style: TextStyle(
+                                            ),
+                                            style: const TextStyle(
                                               fontWeight: FontWeight.w800,
                                               fontSize: 15,
                                             ),
@@ -183,7 +183,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 8),
+                                const SizedBox(height: 8),
                                 weatherId(widget.weatherModel.weather?[0].id ??
                                     0), // анимация
                                 Center(
@@ -191,23 +191,23 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                     children: [
                                       Text(
                                         "${Utils.kelvinToCelsius(widget.weatherModel.main?.tempMin)?.toStringAsFixed(1) ?? ''}°C",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 55,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
                                       Text(
-                                        "${widget.weatherModel.weather?[0].description?.toUpperCase() ?? ''}",
-                                        style: TextStyle(
+                                        widget.weatherModel.weather?[0].description?.toUpperCase() ?? '',
+                                        style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 25,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                       Text(
-                                        "${Utils.formatDate(widget.weatherModel.dt ?? 0)}",
-                                        style: TextStyle(
+                                        Utils.formatDate(widget.weatherModel.dt ?? 0),
+                                        style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w200,
                                         ),
@@ -215,7 +215,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 30),
+                                const SizedBox(height: 30),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -226,22 +226,22 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                           'assets/images/11.png',
                                           scale: 8,
                                         ),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Sunrise',
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                             ),
-                                            SizedBox(height: 3),
+                                            const SizedBox(height: 3),
                                             Text(
-                                              '${Utils.formatDateTime(widget.weatherModel.sys?.sunrise)}',
-                                              style: TextStyle(
+                                              Utils.formatDateTime(widget.weatherModel.sys?.sunrise),
+                                              style: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -256,22 +256,22 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                           'assets/images/12.png',
                                           scale: 8,
                                         ),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Sunset',
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                             ),
-                                            SizedBox(height: 3),
+                                            const SizedBox(height: 3),
                                             Text(
-                                              '${Utils.formatDateTime(widget.weatherModel.sys?.sunrise)}',
-                                              style: TextStyle(
+                                              Utils.formatDateTime(widget.weatherModel.sys?.sunrise),
+                                              style: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -282,7 +282,7 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                     ),
                                   ],
                                 ),
-                                Padding(
+                                const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 5.0),
                                   child: Divider(
                                     color: Colors.grey,
@@ -298,23 +298,24 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                           'assets/images/13.png',
                                           scale: 8,
                                         ),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Temp Max',
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                             ),
-                                            SizedBox(height: 3),
+                                            const SizedBox(height: 3),
                                             Text(
                                               "${Utils.kelvinToCelsius(widget.weatherModel.main?.tempMax)?.toStringAsFixed(1) ?? ''}°C",
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -326,25 +327,25 @@ class _WeatherInfoScreenState extends State<WeatherInfoScreen> with Utils {
                                           'assets/images/14.png',
                                           scale: 8,
                                         ),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Temp Min',
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                             ),
-                                            SizedBox(height: 3),
+                                            const SizedBox(height: 3),
                                             Text(
                                               "${Utils.kelvinToCelsius(widget.weatherModel.main?.tempMin)?.toStringAsFixed(1) ?? ''}°C",
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
-                                            // Text("Weather ID: ${widget.weatherModel.weather?[0]?.id ?? 'N/A'}"),
                                           ],
                                         ),
                                       ],

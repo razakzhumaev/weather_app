@@ -14,11 +14,11 @@ class GlobalLocalizationLoadingState extends GlobalLocalizationState {}
 class GlobalLocalizationLoadedState extends GlobalLocalizationState {
   final String locale;
 
-  GlobalLocalizationLoadedState({required this.locale});
+  const GlobalLocalizationLoadedState({required this.locale});
 }
 
 class GlobalLocalizationErrorState extends GlobalLocalizationState {
   final CatchException error;
 
-  GlobalLocalizationErrorState({required this.error});
+  const GlobalLocalizationErrorState({required this.error});
 }

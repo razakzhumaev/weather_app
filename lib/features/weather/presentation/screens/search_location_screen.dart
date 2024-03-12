@@ -5,8 +5,6 @@ import 'package:flutter_appl_weatherapp/features/weather/data/repositories/weath
 import 'package:flutter_appl_weatherapp/features/weather/domain/use_cases/weather_use_case.dart';
 import 'package:flutter_appl_weatherapp/features/weather/presentation/logic/bloc/weather_bloc.dart';
 import 'package:flutter_appl_weatherapp/features/weather/presentation/screens/weather_info_screen.dart';
-// import 'package:flutter_appl_weatherapp/generated/l10n.dart';
-// import 'package:flutter_appl_weatherapp/generated/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchLocationScreen extends StatelessWidget {
@@ -23,25 +21,9 @@ class SearchLocationScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
         ),
-        // title: Text(S.of(context).hello),
-        // backgroundColor: Colors.blue,
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: Icon(Icons.abc),
-        //   ),
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: Icon(Icons.abc),
-        //   ),
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: Icon(Icons.abc),
-        //   ),
-        // ],
       ),
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
@@ -52,22 +34,22 @@ class SearchLocationScreen extends StatelessWidget {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(-1, -0.4),
+                alignment: const AlignmentDirectional(-1, -0.4),
                 child: Container(
                   height: 150,
                   width: 150,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.amber,
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(1, -0.4),
+                alignment: const AlignmentDirectional(1, -0.4),
                 child: Container(
                   height: 150,
                   width: 150,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.blue,
                   ),
@@ -79,7 +61,7 @@ class SearchLocationScreen extends StatelessWidget {
                   sigmaY: 100.0,
                 ),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.transparent),
+                  decoration: const BoxDecoration(color: Colors.transparent),
                 ),
               ),
               SizedBox(
@@ -109,7 +91,7 @@ class SearchLocationScreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Welcome to Razak Weather App",
                           style: TextStyle(
                             fontFamily: 'ProtestRiot',
@@ -121,7 +103,7 @@ class SearchLocationScreen extends StatelessWidget {
                         Image.asset('assets/images/7.png'),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'Discover the Weather',
                               style: TextStyle(
                                 fontSize: 30,
@@ -129,7 +111,7 @@ class SearchLocationScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'in the World',
                               style: TextStyle(
                                 fontSize: 30,
@@ -137,57 +119,57 @@ class SearchLocationScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            SizedBox(height: 20),
-                            Text(
+                            const SizedBox(height: 20),
+                            const Text(
                               'Get to know your weather maps and',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w200,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'radar precipitation forecast',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w200,
                               ),
                             ),
-                            SizedBox(height: 60),
+                            const SizedBox(height: 60),
                             TextField(
                               controller: controller,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                               decoration: InputDecoration(
-                                labelStyle: TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 labelText: 'choose city or country',
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.white,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.white,
                                     width: 5,
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             SizedBox(
                               height: 60,
                               width: 300,
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor:
-                                      MaterialStatePropertyAll(Colors.blue),
+                                      const MaterialStatePropertyAll(Colors.blue),
                                   foregroundColor:
-                                      MaterialStatePropertyAll(Colors.white),
+                                      const MaterialStatePropertyAll(Colors.white),
                                   overlayColor:
-                                      MaterialStatePropertyAll(Colors.white),
+                                      const MaterialStatePropertyAll(Colors.white),
                                   shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
@@ -202,7 +184,7 @@ class SearchLocationScreen extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Get started',
                                   style: TextStyle(fontSize: 15),
                                 ),

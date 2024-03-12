@@ -10,5 +10,5 @@ sealed class GlobalLocalizationEvent extends Equatable {
 class ChangeLocalizationEvent extends GlobalLocalizationEvent {
   final String locale;
 
-  ChangeLocalizationEvent({required this.locale});
+const  ChangeLocalizationEvent({required this.locale});
 }

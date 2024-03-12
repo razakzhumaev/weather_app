@@ -17,8 +17,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-
   GlobalLocalizationBloc bloc = GlobalLocalizationBloc();
   String? locale;
 
@@ -37,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -59,7 +57,7 @@ class _MyAppState extends State<MyApp> {
             locale = state.locale;
           }
         },
-        child: SearchLocationScreen(),
+        child: const SearchLocationScreen(),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_appl_weatherapp/internal/helpers/catch_exception.dart';
-// import 'package:lesson41/internal/helpers/catch_exception.dart';
 
 class ApiRequester {
   final String url = 'https://api.openweathermap.org/';
